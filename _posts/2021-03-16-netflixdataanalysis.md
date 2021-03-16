@@ -14,5 +14,5 @@ This increase might be owing to the addition few reasons
   * Content not saved due to less technological advancements during the time period
 
 *Plot's visualzied based on the release year seperated at midpoint*
-<img src="/images/ry-1940-80.png" width="200", height="150">
-<img src="/images/ry-1981-2020.png" width="200", height="150">
+<img src="/images/ry-1940-80.png">
+<img src="/images/ry-1981-2020.png">
