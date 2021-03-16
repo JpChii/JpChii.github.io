@@ -15,4 +15,4 @@ This increase might be owing to the addition few reasons
 
 *Plot's visualzied based on the release year seperated at midpoint*
 <img src="/images/ry-1940-80.png">
-<img src="/images/rry-1981-2020.png">
+<img src="/images/ry-1981-2020.png">
