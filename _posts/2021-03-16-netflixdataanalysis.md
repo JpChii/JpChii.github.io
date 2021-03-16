@@ -16,3 +16,8 @@ This increase might be owing to the addition few reasons
 *Plot's visualzied based on the release year seperated at midpoint*
 <img src="/images/ry-1940-80.png">
 <img src="/images/ry-1981-2020.png">
+
+On analysing `country` feature, there's not much correlation between year of release and number of countries. 
+*On seeing the below graph the no of countries increased from a peak of 5 in first half to peak of 12 in second half which can be considered as gradual increase.* We can confirm that older movies/shows available in netflix based on released years is less in first half due to techonlogy only.
+
+<img src="/images/ry-v-noofcountries.png">
