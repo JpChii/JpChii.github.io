@@ -29,3 +29,9 @@ Based on the addition of new contents, we can say netflix subscribers could have
 
 *Visualized plot*
 <img src="/images/year-added.png">
+
+### Show/Movie `month_added` feaure analysis
+The content addition is at it;s peak in January and December across years
+
+*Monthwise distribution visualization*
+<img src="/images/month-added-distribution.png">
