@@ -31,7 +31,16 @@ Based on the addition of new contents, we can say netflix subscribers could have
 <img src="/images/year-added.png">
 
 ### Show/Movie `month_added` feaure analysis
-The content addition is at it;s peak in January and December across years
+The content addition is at it's peak in January and December across years
 
 *Monthwise distribution visualization*
 <img src="/images/month-added-distribution.png">
+
+## Show/Movie `type` feature analysis with respect to `year_added` feature
+Addition of tv shows is higher compared with movies from 2011. 57%, 46%, 67% more tv shows are added in the past three years compared with movies.
+
+*Tv shows/Movies distribution visualization*
+Plot details
+(year, 0) - Movies (year, 1) - TV shows --> X-axis
+Number of Movies/TV shows --> Y-axis
+<img src="/images/content-classification-distribution.png">
