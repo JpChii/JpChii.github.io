@@ -44,3 +44,28 @@ Plot details
 (year, 0) - Movies (year, 1) - TV shows --> X-axis
 Number of Movies/TV shows --> Y-axis
 <img src="/images/content-classification-distribution.png">
+
+## `No Of Countries` feature analysis with `No of Movies/TV shows` across years
+
+### Case 1: Outliers
+There are four outliers, i.e new content added from **2017 - 2020**. Large number of Movies/TV shows were added with minimum 949(2017) to maximum 1676(2019).
+This outlier is visualized seperatley for better understanding.
+
+*Tv shows/Movies distribution visualization associated with countries across years - Outliers*
+<img src="/images/no-of-countries-count-greater-than-677-with-respect-to-yd.png">
+
+### Case 2
+From 2015, addition of new content not associated with any country has increased. More than 100 new content were added from **2018 - 2020** with maximum of 158 in 2020.
+
+New content associated with 1 and 3 countries have scatter in a similar manner across years. But a gradual increase in 3 countries and in an erratic manner in associated with 1 country - 61(new content) in 2015 to 1(new content) in 2016 and then more were added only in 2021(81).
+
+Associaton with 3 countries have the highest number of added contents in cumulative sum, mimimum of 137(2017) to 214(2109).
+
+All others are scattered below mean addition of new contents.
+
+*Tv shows/Movies distribution visualization associated with countries across years*
+<img src="/images/no-of-countries-count-less-than-677-with-respect-to-yd.png">
+
+*Tried to convert the ndarray to comma seperated values in plot, will find the solution and update the plots later😉*
+
+That's it for this blog, hope you had a good read!! 😎🙂
