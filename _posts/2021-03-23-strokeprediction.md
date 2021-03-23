@@ -29,17 +29,17 @@ We're going to see how the features influence or impact `stroke` - target. First
      - values [ formerly smoked, never smoked, smokes, Unknown ]
 12. `stroke` - target parameter, whether person will have stroke or not
 
-***Plot 1: `stroke` value counts***
+***Plot 1 `stroke` value counts***
 <img src="/images/stroke/target-value-counts.png">
 
 We've an unbalanced dataset with lot's of samples available for false positive.
 
-***Plot 2: How `gender` affects `stroke`***
+***Plot 2 How `gender` affects `stroke`***
 <img src="/images/stroke/stroke-gender.png">
 
 **Women** are more susceptible to have stroke than**Men**, There's an outlier with one sample in **other** gender we'll drop the sample.
 
-***lot 3: How whether a person is or was impacts affects `stroke`***
+***Plot 3 How whether a person is or was impacts affects `stroke`***
 <image src="/images/stroke/ever-married-stroke.png">
 
 People who is or was married are more susceptible to have stroke. To all the single out there, at least you won't have stroke any time soon😜🤣.
