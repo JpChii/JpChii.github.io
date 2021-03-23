@@ -56,7 +56,8 @@ Urban people have a little edge compared to rural people on stroke possiblity.
 ***Plot 5: How `smoking_type` impacts `stroke`***
 
 *Smoking is injurious to health and environment*. Looking at the plot,smoking has caused a little percent of them a stroke. **never smoked** are affected by stroke higher than other categories, but never_smoked contributes to 37% of the dataset.
-<image src="/images/stroke/smoking-type-stroke.png">
+
+<img src="/images/stroke/smoking-type-stroke.png">
 
 ***Plot 6: How `work_type` impacts `stroke`***
 
