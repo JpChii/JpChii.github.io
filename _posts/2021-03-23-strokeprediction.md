@@ -69,10 +69,10 @@ People in **private** are more susceptibe to stroke compared to other categories
 
 Hypertension has high possiblity of becoming a stroke.
 
-<image src="/images/stroke/hyper-tension-stroke.png">
+<img src="/images/stroke/hyper-tension-stroke.png">
 
 ***Plot 8: How `age`, `bmi` impacts `stroke`***
 
 Older people with low bmi have a possiblity of stroke.
 
-<image src="/images/stroke/age-bmi-stroke.png">
+<img src="/images/stroke/age-bmi-stroke.png">
