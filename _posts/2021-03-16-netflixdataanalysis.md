@@ -6,6 +6,8 @@ Then i thought why not analyze netflix content dataset to see, if i can find any
 
 Downloaded dataset(https://www.kaggle.com/shivamb/netflix-shows) as of 2019 from kaggle and setup an conda environment with numpy, pandas and matplotlib for analysis and visualisation.
 
+The complete notebook can be found here - https://www.kaggle.com/jpchinnaraji/netflix-data-analysis-and-visualizations/comments
+
 ### Show/Movie `release_year` feature analysis
 
 On Analysing the data, number of shows/movies has taken a extremley huge spike from the halfway mark in dataset. From 20 in 1980 to more than 1750 in 2020.
