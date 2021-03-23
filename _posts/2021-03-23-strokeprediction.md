@@ -29,37 +29,37 @@ We're going to see how the features influence or impact `stroke` - target. First
      - values [ formerly smoked, never smoked, smokes, Unknown ]
 12. `stroke` - target parameter, whether person will have stroke or not
 
-#### 1. `stroke` value counts
+#### Plot 1 - `stroke` value counts
 <img src="/images/stroke/target-value-counts.png">
 
 We've an unbalanced dataset with lot's of samples available for false positive.
 
-#### 2. How `gender` affects `stroke`
+#### Plot 2 - How `gender` affects `stroke`
 <img src="/images/stroke/stroke-gender.png">
 
 **Women** are more susceptible to have stroke than**Men**, There's an outlier with one sample in **other** gender we'll drop the sample.
 
-#### 3. How whether a person is or was impacts affects `stroke`
+#### Plot 3 - How whether a person is or was impacts affects `stroke`
 <image src="/images/stroke/ever-married-stroke.png">
 
 People who is or was married are more susceptible to have stroke. To all the single out there, at least you won't have stroke any time soon😜🤣.
 
-#### 4. How `residence_type` impacts `stroke`
+#### Plot 4 - How `residence_type` impacts `stroke`
 <image src="/images/stroke/residence-type-stroke.png">
     
 Urban people have a little edge compared to rural people on stroke possiblity.
 
-#### 5. How `smoking_type` impacts `stroke`
+#### Plot 5 - How `smoking_type` impacts `stroke`
 <image src="/images/stroke/smoking-type-stroke.png">
 
 *Smoking is injurious to health and environment*. Looking at the plot,smoking has caused a little percent of them a stroke. **never smoked** are affected by stroke higher than other categories, but never_smoked contributes to 37% of the dataset.
 
-#### 6. How `work_type` impacts `stroke`
+#### Plot 6 - How `work_type` impacts `stroke`
 <image src="/images/stroke/work-type-stroke.png">
 
 People in **private** are more susceptibe to stroke compared to other categories, but *private* category contributes to is 57% dataset. 
 
-#### 7. How `hyper_tension` impacts `stroke`
+#### Plot 7 - How `hyper_tension` impacts `stroke`
 <image src="/images/stroke/hyper-tension-stroke.png">
     
 Hypertension has high possiblity of becoming a stroke.
