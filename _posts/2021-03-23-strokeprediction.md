@@ -43,3 +43,28 @@ We've an unbalanced dataset with lot's of samples available for false positive.
 <image src="/images/stroke/ever-married-stroke.png">
 
 People who is or was married are more susceptible to have stroke. To all the single out there, at least you won't have stroke any time soon😜🤣.
+
+***Plot 4 How `residence_type` impacts `stroke`***
+<image src="/images/stroke/residence-type-stroke.png">
+
+Urban people have a little edge compared to rural people on stroke possiblity.
+
+***Plot 5 How `smoking_type` impacts `stroke`***
+<image src="/images/stroke/smoking-type-stroke.png">
+
+*Smoking is injurious to health and environment*. Looking at the plot,smoking has caused a little percent of them a stroke. **never smoked** are affected by stroke higher than other categories, but never_smoked contributes to 37% of the dataset.
+
+***Plot 6 How `work_type` impacts `stroke`***
+<image src="/images/stroke/work-type-stroke.png">
+
+People in **private** are more susceptibe to stroke compared to other categories, but *private* category contributes to is 57% dataset.
+
+***Plot 7 How `hyper_tension` impacts `stroke`***
+<image src="/images/stroke/hyper-tension-stroke.png">
+    
+Hypertension has high possiblity of becoming a stroke.
+
+***Plot 8 How `age`, `bmi` impacts `stroke`***
+<image src="/images/stroke/age-bmi-stroke.png">
+
+Older people with low bmi have a possiblity of stroke.
