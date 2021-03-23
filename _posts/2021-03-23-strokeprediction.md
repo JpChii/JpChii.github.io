@@ -62,9 +62,9 @@ People in **private** are more susceptibe to stroke compared to other categories
 #### 7. How `hyper_tension` impacts `stroke`
 <image src="/images/stroke/hyper-tension-stroke.png">
     
- Hypertension has high possiblity of becoming a stroke.
+Hypertension has high possiblity of becoming a stroke.
  
- #### 8. How `age`, `bmi` impacts `stroke`
- <image src="/images/stroke/age-bmi-stroke.png">
+#### 8. How `age`, `bmi` impacts `stroke`
+<image src="/images/stroke/age-bmi-stroke.png">
 
 Older people with low bmi have a possiblity of stroke.
