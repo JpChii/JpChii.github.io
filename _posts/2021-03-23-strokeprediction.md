@@ -83,7 +83,7 @@ Older people with low glucose level have a possiblity of stroke.
 
 <img src="/images/stroke/age-glucose-stroke.png">
 
-****plot 10: One last EDA for this blog****
+****Plot 10: One last EDA for this blog****
 
 An correlation matrix between features and how they affect each others.
 
