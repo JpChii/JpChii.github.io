@@ -76,3 +76,9 @@ Hypertension has high possiblity of becoming a stroke.
 Older people with low bmi have a possiblity of stroke.
 
 <img src="/images/stroke/age-bmi-stroke.png">
+
+***Plot 9: How `age`, `avg_glucose_level` impacts `stroke`***
+
+Older people with low glucose level have a possiblity of stroke.
+
+<img src="/images/stroke/age-glucose-stroke.png">
