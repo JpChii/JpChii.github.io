@@ -31,7 +31,7 @@ We're going to see how the features influence or impact `stroke` - target. First
 
 ***Plot 1: `stroke` value counts***
 
-We've an unbalanced dataset with lot's of samples available for false positive.
+We've an unbalanced dataset with lot's of samples available for false positive. Has a ratio of 95:5 for True negative: True Positive
 
 <img src="/images/stroke/target-value-counts.png">
 
