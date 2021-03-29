@@ -205,90 +205,11 @@ weighted avg       0.89      0.95      0.92       982
 
 Okay now we're getting how big an impact the imbalance dataset is having on our models.
 
-## Imbalanced dataser Experimentation
+## Imbalanced dataset Experimentation
 
 This is my first binary classification modelling experience on an imbalanced dataset. There are two way's here
 
 1. Algorithm-based
 2. Dataset-based
 
-I went Dataset-based approach. Since am using scikit-learn for modelling, I've researched the docs and found `imblearn`. `imblearn` has oversampling, undersampling and [more methods](https://imbalanced-learn.org/stable/user_guide.html) to play around.
-
-### 1. RandomOverSampling
-
-This sampling technique creates new samples for the minority class. It creates new samples from current available samples.
-
-*Resampling code*
-
-```Python
-from sklearn.datasets import make_classification
-X, Y = make_classification(n_samples=5000, n_features=2, n_informative=2,
-                          n_redundant=0, n_repeated=0, n_classes=2,
-                          n_clusters_per_class=1,
-                          weights=[0.1, 0.9],
-                          class_sep=0.8, random_state=0)
-
-from imblearn.over_sampling import RandomOverSampler
-ros = RandomOverSampler(random_state=0)
-X_resampled, Y_resampled = ros.fit_resample(X, Y)
-```
-
-Now we've gor resampled data, let's split, train and score them to see if we get any improvement for monority class.
-
-The model performs extremley well, which might be overfitting but this is better compored to F1-score of 0.00 for class 1.
-
-#### 1.1 ClassificationReport
-
-Better on all metrics accuracy, f1-score, macro avg.
-
-```
-              precision    recall  f1-score   support
-
-           0       1.00      0.95      0.97       938
-           1       0.95      1.00      0.97       855
-
-    accuracy                           0.97      1793
-   macro avg       0.97      0.98      0.97      1793
-weighted avg       0.98      0.97      0.97      1793
-```
-
-#### 1.2 ConfusionMatrix
-
-<img src="/images/stroke/conf-matrix-ros.png">
-
-After oversampling model is capable of predicitions on minority class.
-
-### 1.3 ROC curve
-
-Got great auc of 0.98 😮.
-
-<img src="/images/stroke/roc-ros.png">
-
-### 2. SMOTE
-
-Let's try one last oversampling technique SMOTE.
-
-#### 2.1 ClassificationReport
-
-Better on all metrics accuracy, f1-score, macro avg compared to base model.
-
-```
-              precision    recall  f1-score   support
-
-           0       1.00      0.95      0.97       938
-           1       0.95      1.00      0.97       855
-
-    accuracy                           0.97      1793
-   macro avg       0.97      0.98      0.97      1793
-weighted avg       0.98      0.97      0.97      1793
-```
-
-#### 2.2 ConfusionMatrix
-
-<img src="/images/stroke/conf-matrix-smote.png">
-
-After oversampling model is capable of predicitions on minority class.
-
-## Fina Decision
-
-We can use the oversampled models whcih gived better performance on both classed compared to minority models.
+I went Dataset-based approach. Since am using scikit-learn for modelling, I've googled and found `imblearn`. `imblearn` has oversampling, undersampling and [more methods](https://imbalanced-learn.org/stable/user_guide.html) to play around.
