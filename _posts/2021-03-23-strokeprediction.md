@@ -88,3 +88,117 @@ Older people with low glucose level have a possiblity of stroke.
 An correlation matrix between features and how they affect each others.
 
 <img src="/images/stroke/correlation-matrix.png">
+
+## Preparing the data
+
+The below mentioned cztegorical features are converted to numerical fetaures.
+
+1. gender
+    - Male: 0
+    - Female: 1
+2. ever_married
+    - Yes: 0
+    - No: 1
+3. work_type
+    - Private: 0
+    - Self-Employed: 1
+    - Govt_job: 2
+    - children: 3
+    - Never_worked: 4
+4. Residence_type
+    - Urban: 0
+    - Rural: 1
+5. smoking_status
+    - formerly smoked: 0
+    - never smoked: 1
+    - smoked: 2
+    - Unknown: 3
+
+## Modelling
+
+1. The data is splitted into train and test using `train_test_split`
+2. Initially We've taken the below the classifiers and modelled them on the training data
+    - KNeighborsClassifier
+    - LogisticRegression
+    - RandomForestClassifier
+
+```Python
+# Put models in a dictionary
+models = {"KNN": KNeighborsClassifier(),
+          "Logistic Regression": LogisticRegression(), 
+          "Random Forest": RandomForestClassifier()}
+
+def fit_and_score(models, x_train, x_test, y_train, y_test):
+    """
+    Model to fit the data to a model and score the model with test data
+    models - dictionary of models
+    x_train - training features
+    x_test - test features
+    y_train - training features
+    y_test - test_features
+    """
+    np. random.seed(42)
+    model_scores = {}
+    for name, model in models.items():
+        model.fit(x_train, y_train)
+        model_scores[name] = model.score(x_test, y_test)
+    return model_scores
+```
+
+After training we've got the below `accuracy scores` for the models
+
+<img src="/images/stroke/model-accuracy.png">
+
+### Hypertuning
+Let's Hypertune the above models to see if we can get better accuracy.
+
+#### 1. KNeighborsClassifier with neigbhors range from (0,21)
+
+<img src="/images/stroke/Neighbor-score.png">
+
+No improvement on model after hypertuning the n_neigbors.
+
+#### 2. RandomizedSearchCV RandomForestClassifier
+
+The below hyperparameters provided better performance than the base model.
+
+```{'n_estimators': 260,
+ 'min_samples_split': 8,
+ 'min_samples_leaf': 13,
+ 'max_depth': 10}
+ ```
+ 
+## Evaluation
+ 
+Since this is an imbalanced dataset, Accuracy won't be enough to confirm the model's performance. There are few ways to work on imbalanced sets. 
+
+Let's find below metrics on how the model performs on both classes - One of the ways to work on imbalanced sets.
+ 
+#### 1. ROC Curve
+ 
+<img src="/images/stroke/roc-curve.png">
+
+We've an AUC of 0.84 which is not bad.
+
+#### 2. Confusion matrix
+
+Confusion matrix will give more clear picture on model's predictions on majority and minority classes.
+
+<img src="/images/stroke/conf-matrix.png">
+ 
+The model is unable to predict anything for class 1. Since machine learning tries to mimize the error at most, model is choosing the majority class which will be at 95%. The minority class is really important for stroke prediction because if we predict True Potive(Stroke) as False Postive(No Stroke) will be major pain to the patients. Let's see the `F1-score` and `mac-avg` as our last evaluation of the model.
+
+#### 3. Classification report
+
+The f1-score for class 1 is 0 and macro avg is 0.49 further confirming classification report, that the model is not at all predicting the minority class.
+
+```
+precision    recall  f1-score   support
+
+           0       0.95      1.00      0.97       929
+           1       0.00      0.00      0.00        53
+
+    accuracy                           0.95       982
+   macro avg       0.47      0.50      0.49       982
+weighted avg       0.89      0.95      0.92       982
+```
