@@ -273,7 +273,7 @@ def fit_resample_and_score(models, samplers, x, y):
     return model_scores
 ```
 
-**Plot comparison visualization of above
+**Plot comparison visualization of above**
 
 <img src="/images/stroke/imblearn-model-comparison.png">
 
