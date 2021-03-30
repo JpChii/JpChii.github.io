@@ -1,4 +1,4 @@
-# Stroke Prediction
+# Stroke Prediction - Imbalanced classification
 
 In this blog, we're going to explore the stroke prediction from kaggle and try to come up with a model to predict whether a person has stroke or not?
 
