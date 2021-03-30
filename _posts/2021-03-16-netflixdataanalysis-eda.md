@@ -1,4 +1,4 @@
-# Netflix Programs
+# Netflix Programs - Exploratory Data Analysis
 
 I use netflix a lot for my entertainment and binge watching - Usually wasting too much time by clicking suggested tv shows and movies😕.
 
