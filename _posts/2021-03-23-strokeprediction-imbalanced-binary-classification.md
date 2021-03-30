@@ -202,7 +202,7 @@ precision    recall  f1-score   support
    macro avg       0.47      0.50      0.49       982
 weighted avg       0.89      0.95      0.92       982
 ```
-
+*Model is not able to predict anything for class 1(0.00), the class imbalance is really big as macrov avg is also really low*
 Okay now we're getting how big an impact the imbalance dataset is having on our models.
 
 ## Imbalanced dataset Experimentation
@@ -213,3 +213,108 @@ This is my first binary classification modelling experience on an imbalanced dat
 2. Dataset-based
 
 I went Dataset-based approach. Since am using scikit-learn for modelling, I've googled and found `imblearn`. `imblearn` has oversampling, undersampling and [more methods](https://imbalanced-learn.org/stable/user_guide.html) to play around.
+
+We'll use the below combination of models and imblearn techniques,
+
+**Models**
+
+1. KNeighborsClassifier
+2. LogisticRegression
+3. RandomForest
+
+**Samplers**
+
+1. RandomOverSampler - sampling_strategy='minority'
+2. SMOTE - sampling_strategy='minority'
+3. ADASYN - sampling_strategy='minority'
+4. RandomUnderSampler - sampling_strategy='majority'
+5. TomekLinks - sampling_strategy='majority'
+
+Code snipped for this.
+
+```Python
+# Put models in a dictionary
+models = {"KNN": KNeighborsClassifier(),
+          "LogisticRegression": LogisticRegression(), 
+          "RandomForest": RandomForestClassifier()}
+
+resamplers = {
+    "ros": RandomOverSampler(sampling_strategy='minority'),
+    "smote": SMOTE(sampling_strategy='minority'),
+    "adasyn": ADASYN(sampling_strategy='minority'),
+    "rus": RandomUnderSampler(sampling_strategy="majority"),
+    "tomek": TomekLinks(sampling_strategy="majority")
+}
+
+def fit_resample_and_score(models, samplers, x, y):
+    """
+    Model to resample data to a model and score the model with test data
+    models - dictionary of models
+    samplers - samplers to resample the data
+    x - features
+    y - labels
+    """
+    np. random.seed(42)
+    model_scores = {}
+    for sname, sampler in samplers.items():
+        
+        # resampling the data
+        X_resampled, Y_resampled = sampler.fit_resample(x, y)
+        
+        # Splitting the data
+        X_train, X_test, Y_train, Y_test = train_test_split(x, y, test_size=0.2)
+        
+        for mname, model in models.items():
+            #print(sname + mname)
+            model.fit(X_train, Y_train)
+            model_scores[sname+mname] = model.score(X_test, Y_test)
+
+    return model_scores
+```
+
+**Plot comparison visualization of above
+
+<img src="/images/stroke/imblearn-model-comparison.png">
+
+The model with highest accuracy is rosKNN with 0.9633401221995926
+
+## Hypertuning
+
+Let's hypertune the base model with neighbors from range(1,21) to see if we can improve the performace from base model.
+
+<img src="/images/stroke/knnros-tuning.png">
+
+Maximum KNN score on the test data: 97.53% is obtained after hypertuning for `n_neighbors=1`.
+
+## Evaluation metrics
+
+Let's calculate moed metrics for KNeighborsClassifier with `n_neighbors=1`.
+
+#### 1. ROC curve
+
+<img src="/images/stroke/knnros-roc.png">
+
+#### 2. ClassificationReport
+
+```
+              precision    recall  f1-score   support
+
+           0       1.00      0.95      0.97      1184
+           1       0.95      1.00      0.98      1166
+
+    accuracy                           0.98      2350
+   macro avg       0.98      0.98      0.98      2350
+weighted avg       0.98      0.98      0.98      2350
+```
+
+We've an improved f1-score for both classed and 98%🔥 accuracy which is great😎.
+
+#### 3. ConfusionMatrix
+
+<img src="/images/stroke/conf-matrix-knn-ros.png">
+
+We got only 58 false negatives in resampled dataset.
+
+To conclude I've tried to explore how to work on imbalanced dataset in binary classification. Covered few sampling methods from imblearn. Fot this stroke prediction dataset **RandomOverSampling KNeighborsClassifier with n_neighbors=1** performs the bset.
+
+Hope you've enjoyed the read!!
