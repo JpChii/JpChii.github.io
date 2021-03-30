@@ -4,7 +4,7 @@ In this blog, we're going to explore the stroke prediction from kaggle and try t
 
 [Link to dataset](https://www.kaggle.com/fedesoriano/stroke-prediction-dataset)
 
-[Link to notebook](https://github.com/JpChii/ML-Projects/blob/main/end-to-end-stroke-prediction.ipynb)
+[Link to notebook](https://www.kaggle.com/jpchinnaraji/end-to-end-stroke-predicion)
 
 ## Exploratory data analysis
 
