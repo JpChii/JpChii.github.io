@@ -162,7 +162,7 @@ No improvement on model after hypertuning the n_neigbors.
 
 The below hyperparameters provided better performance than the base model.
 
-```{'n_estimators': 260,
+```JSON{'n_estimators': 260,
  'min_samples_split': 8,
  'min_samples_leaf': 13,
  'max_depth': 10}
