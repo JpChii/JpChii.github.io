@@ -91,7 +91,7 @@ An correlation matrix between features and how they affect each others.
 
 ## Preparing the data
 
-The below mentioned cztegorical features are converted to numerical fetaures.
+The below mentioned categorical features are converted to numerical fetaures.
 
 1. gender
     - Male: 0
