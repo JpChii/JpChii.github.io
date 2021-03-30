@@ -41,7 +41,7 @@ We've an unbalanced dataset with lot's of samples available for false positive. 
 
 <img src="/images/stroke/stroke-gender.png">
 
-***Plot 3: How whether a person is or was impacts affects `stroke`***
+***Plot 3: How whether a person is or was married affects `stroke`***
 
 People who is or was married are more susceptible to have stroke. To all the single out there, at least you won't have stroke any time soon😜🤣.
 
@@ -83,7 +83,7 @@ Older people with low glucose level have a possiblity of stroke.
 
 <img src="/images/stroke/age-glucose-stroke.png">
 
-****Plot 10: One last EDA for this blog****
+***Plot 10: One last EDA for this blog***
 
 An correlation matrix between features and how they affect each others.
 
