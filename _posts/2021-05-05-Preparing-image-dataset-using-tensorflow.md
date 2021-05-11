@@ -3,6 +3,7 @@
 We're going to checkout two ways of preparing the data here,
   1. ImageDataGenerator
   2. image_dataset_from_directory
+  3. tf.data API
 
 First to use the above two libraries to load data, the images must follow a specific directory structure.
 
@@ -34,7 +35,7 @@ directory <- top level folder
 
 You can checkout [Daniel's preprocessing notebook](https://github.com/mrdbourke/tensorflow-deep-learning/blob/main/extras/image_data_modification.ipynb) for preparing the data.
 
-## ImageDataGenerator
+## 1.1 ImageDataGenerator
 
 [Definition form docs](https://www.tensorflow.org/api_docs/python/tf/keras/preprocessing/image/ImageDataGenerator#used-in-the-notebooks_1) - Generate batches of tensor image data with real time augumentaion.
 
@@ -49,21 +50,28 @@ test_datagen = ImageDataGenerator()
 ```
 
 Two seperate data generator instances are created for training and test data.
+```Python
+# Creating DataGen instances
+train_datagen_10_percent = ImageDataGenerator(rescale=1/255.)
+test_datagen_1_percent = ImageDataGenerator(rescale=1/255.)
+```
+
+*`rescale=1/255.` is used to scale the images between 0 and 1 because most deep learning and machine leraning models prefer data that is scaled 0r normalized.*
 
 Let's use `flow_from_directory()` method of `ImageDataGenerator` instance to load the data. We'll load the data for both training and test data at the same time.
 
 ```Python
-train_data = train_datagen.flow_from_directory(directory=train_dir,
-                                              batch_size=32,
-                                              target_size=(224,224),
-                                              class_mode="binary",
-                                              seed=42)
+# Loading in the data
+train_data_10_percent = train_datagen_10_percent.flow_from_directory(directory=train_dir_10_percent,
+                                                                     target_size=(224, 224),
+                                                                     class_mode='categorical',
+                                                                     batch_size=32,
+                                                                     shuffle=True)
 
-test_data = test_datagen.flow_from_directory(directory=test_dir,
-                                            batch_size=32,
-                                            target_size=(224,224),
-                                            class_mode="binary",
-                                            seed=32)
+test_data_1_percent = test_datagen_1_percent.flow_from_directory(directory=test_dir_1_percent,
+                                                                     target_size=(224, 224),
+                                                                     class_mode='categorical',
+                                                                     batch_size=32)
 ```
 
 First Let's see the parameters passes to the `flow_from_directory()`
@@ -75,7 +83,41 @@ First Let's see the parameters passes to the `flow_from_directory()`
 
 After checking whether `train_data` is tensor or not using `tf.is_tensor()`, it returned `False`. `flow_from_directory()` returns an array of batched images and not `Tensors`.
 
-Let's checkout a single batch using `images, labels = train_data.next()`, we get image shape - (`batch_size`, `target_size`, `target_size`, `rgb`).
+We can checkout a single batch using `images, labels = train_data.next()`, we get image shape - (`batch_size`, `target_size`, `target_size`, `rgb`).
 
-### ImageDataGenerator Data Augumentation
+**Training time**: This method of loading data takes the second lowest training time in the methods being dicussesd here. For 29 classes with 300 images per class, the training in GPU took `2mins 10s` and step duration of `71-74ms`.
 
+## 1.2 ImageDataGenerator Data Augumentation
+
+Data Augumentation - Is the method to tweak the images in our dataset while it's loaded in training for accomodating the real worl images or unseen data.
+
+We can implement Data Augumentaion in ImageDataGenerator using below ImageDateGenerator,
+
+```Pyhon
+# Creating DataGen instances
+train_data_10_percent_aug = ImageDataGenerator(rescale=1/255.,
+                                               horizontal_flip=True,
+                                               zoom_range=0.2,
+                                               rotation_range=0.2,
+                                               width_shift_range=0.2,
+                                               height_shift_range=0.2)
+
+# Loding in the data
+train_data_10_percent_aug = train_data_10_percent_aug.flow_from_directory(directory=train_dir_10_percent,
+                                                                     target_size=(224, 224),
+                                                                     class_mode='categorical',
+                                                                     batch_size=32)
+```
+
+There are many options for augumenting the data, let's explain the ones covered above.
+  1. horizontal_flip - Flips the image in horizontal axis
+  2. zoom_range - zooms in the image
+  3. rotation_range - rotates the image
+  4. width_shift_range - range of width shift performed
+  5. height_shift_range - range of height shift performed
+
+All other parameters are same as in `1.ImageDataGenerator`
+
+Advantage of using data augumentation is it will give better results compared to training without augumentaion in most cases. But `ImageDataGenerator Data Augumentaion` increases the training time, because the data is augumented in CPU and the loaded into GPU for train.
+
+**Training time**: This method of loading data takes the second lowest training time in the methods being dicussesd here. For 29 classes with 300 images per class, the training in GPU took `8mins 7s` and step duration of `355-362ms`.
