@@ -10,17 +10,17 @@ Syntactic analysis and Symantic analysis are the techniques used to complete NLP
 
 We can levearge **Machine Learning** to implement the techniques of Natual Language problem.
 
-### Embeddings
+## Embeddings
 
 Machine Learning models like numbers and they hate anythinh other than numbers they really do. To get useful information via machine learning, first step is to convert text data into numbers. This post discusses about few methods,
 
-#### One-Hot Encoding
+### One-Hot Encoding
 
 Encoding text to numbers. Create a zero vector to the length of the vocabulary(number of unique words on the data) and assign `1` at the index o the word. By doing this what we achieve is called a sparse vector, meaning most indices of the vector are zeros. To form a sentence, concatenate one-hot encoding of the words.
 
 Let's consider a vocabulary with 15,000 words and we encode all of them, what we get is 99.99% of zeros in our data which is really inefficient for training.
 
-#### Integer Encoding with unique numbers
+### Integer Encoding with unique numbers
 
 Let's switch to use an unique number for each words in the vocabulary. This is efficient thean the above because we'll get a dense vector instead of sparse vector.
 
@@ -28,7 +28,7 @@ But in this method, we lose valuable information to amke something out of the da
 
 This where **embedding** comes in
 
-#### Word Embeddings
+### Word Embeddings
 
 **Natural Language data sources**
 Audio, text are sources of Natural Language which are also called as sequence data. Let's see in brief about the neural network suited best for sequential data
