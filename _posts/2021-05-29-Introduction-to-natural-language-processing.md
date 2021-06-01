@@ -34,6 +34,10 @@ Word embedding is an efficient dense vector way where similar words have similar
 
 The embedding length ranges from 8-dimensional for small datasets to 1024-dimensions for large datasets but requires more data to learn.
 
+[Checkout this notebook for detailed walk through of word embeddings in TensorFlow](https://github.com/JpChii/ML-Projects/blob/main/NLP_word_embeddings.ipynb)
+
+[Visulaization of word embeddings on tensorflow embedding projector](http://projector.tensorflow.org/?config=https://raw.githubusercontent.com/JpChii/ML-Projects/main/EmbeddingProjectorconfig.json)
+
 **Natural Language data sources**
 Audio, text are sources of Natural Language which are also called as sequence data. Let's see in brief about the neural network suited best for sequential data
 
