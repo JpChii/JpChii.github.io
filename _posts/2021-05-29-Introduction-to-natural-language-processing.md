@@ -30,6 +30,10 @@ This where **embedding** comes in
 
 ### Word Embeddings
 
+Word embedding is an efficient dense vector way where similar words have similar encodings. Embeddings are floating point vectors, whose values doesn't need to be setup manually. The advantage is the embedding values are learned during training similar to weights of a dense layer. The length of the vector is a parameter to be specified.
+
+The embedding length ranges from 8-dimensional for small datasets to 1024-dimensions for large datasets but requires more data to learn.
+
 **Natural Language data sources**
 Audio, text are sources of Natural Language which are also called as sequence data. Let's see in brief about the neural network suited best for sequential data
 
