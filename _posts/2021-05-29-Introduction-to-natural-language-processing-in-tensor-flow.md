@@ -38,10 +38,14 @@ The embedding length ranges from 8-dimensional for small datasets to 1024-dimens
 
 [Visulaization of word embeddings on tensorflow embedding projector](http://projector.tensorflow.org/?config=https://raw.githubusercontent.com/JpChii/ML-Projects/main/EmbeddingProjectorconfig.json)
 
-**Natural Language data sources**
+## Recurrent Neural Networks
+
+Recurrent Neural Network are powerful for modelling sequence data such as time series and natural language. 
+
+### Natural Language data sources
 Audio, text are sources of Natural Language which are also called as sequence data. Let's see in brief about the neural network suited best for sequential data
 
-**Limitations of fixed input and output shape**
+### Limitations of fixed input and output shape
 In Vanilla, Convolutional neural network the input and output size has to be fixed. For example in CNN's the input shape is `[height, width]` of the image and a label is predicted for the image. The shape's are fixed, but this is a problem when dealing with sequential data.
 
 Consider this we've 10 sentences with words range from 0 to 25, the input size (i.e) number of words vary across sentences. Now to convert this to a fixed shape,
@@ -49,13 +53,18 @@ Consider this we've 10 sentences with words range from 0 to 25, the input size (
 Fit the input length to a certain number
     * Using a small number, useful information might be lost
     * Using a large number, we might fal into the curse of dimensionality
-    
-**Recurrent Neural Networks**
-    
-Still there's a way to use CNN's for Sequence problems but **Recurrent Neural Networks**  are more efficient. We'll check out why that is ?
 
+We can still use CNN's for sequence data modelling which we'll cover it in a blog in the future😜.
 
+### Why Recurrent Neural Networks?
+    
+RNN's have a internal `for loop` to iterate over timestamps of sequence data. The RNN's have an internal state that encodes information about the timestamps it has seen.
+
+Since `TesnorFlow` is my current primary framework for deep modelling, i'll use that in this blog.
+
+The `Keras RNN API` provides us with `layers.RNN`, `layers.LSTM` and `layers.GRU` for ease of use. The` internal for loop` can be customized and used with `layers.RNN` for loop itself offering ease of customization.
 
 **Sources:**
 
 1. https://www.tensorflow.org/text/guide/word_embeddings
+2. https://www.tensorflow.org/guide/keras/rnn
