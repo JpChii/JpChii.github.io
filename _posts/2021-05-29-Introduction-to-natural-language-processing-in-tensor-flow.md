@@ -137,8 +137,31 @@ To compute gradient of initial hidden state invloves many factoes of weight matr
     2. Initialising weights (Initialize weights to identity matrix)
     3. Network architecture (Gated cells, more complex recurrent unit that can more effectivley track long-term dependencies)
 
+#### Long short term memeory
+
+In a standard RNN, repeating module contains a simple computation node. LSTM modules contain computational blocks that control information flow. LSTM cels are able to track information through many timestamps. 
+    
+ Information is **added** or **removed** thriugh structures called **gates**.
+    
+ How do LSTM's work?
+    
+ 1. Forget - forget irrelevant parts in previous state
+ 2. Store -  releveant new information
+ 3. Update - selectivley update cell states
+ 4. Output - Output gate control what information is sent to the next time step
+    
+All these above mechanisms allow uninterrupted gradient flow across a seperatley maintained cell state.
+    
+Until now we've covered the need and how RNN work's to see them in action, checkout the below notbeook
+    
+[RNN using TensorFlow code walkthrough notebook](https://github.com/JpChii/ML-Projects/blob/main/Recurrent_Neural_Networks_with_Keras.ipynb)
+    
+##### Key Concepts:
+    * Maintain a seperate cell state from what is outputted
+    * Use gates to control flow of information (forget, store, update, output)
+    * Backpropogation through time with uninterrupted gradient flow
 **Sources:**
 
-1. https://www.tensorflow.org/text/guide/word_embeddings
-2. https://www.tensorflow.org/guide/keras/rnn
+1. [TensorFlow word embeddings](https://www.tensorflow.org/text/guide/word_embeddings)
+2. [keras RNN API](https://www.tensorflow.org/guide/keras/rnn)
 3. [MIT's introduciton to deep learning](https://www.youtube.com/watch?v=qjrad0V0uJE&list=PLtBw6njQRU-rwp5__7C0oIVt26ZgjG9NI&index=2)
