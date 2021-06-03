@@ -155,7 +155,8 @@ Until now we've covered the need and how RNN work's to see them in action, check
     * Maintain a seperate cell state from what is outputted
     * Use gates to control flow of information (forget, store, update, output)
     * Backpropogation through time with uninterrupted gradient flow
-**Sources:**
+    
+## **Sources:**
 
 1. [TensorFlow word embeddings](https://www.tensorflow.org/text/guide/word_embeddings)
 2. [keras RNN API](https://www.tensorflow.org/guide/keras/rnn)
