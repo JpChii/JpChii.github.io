@@ -45,26 +45,30 @@ Recurrent Neural Network are powerful for modelling sequence data such as time s
 ### Natural Language data sources
 Audio, text are sources of Natural Language which are also called as sequence data. Let's see in brief about the neural network suited best for sequential data
 
-### Limitations of fixed input and output shape
-In Vanilla, Convolutional neural network the input and output size has to be fixed. For example in CNN's the input shape is `[height, width]` of the image and a label is predicted for the image. The shape's are fixed, but this is a problem when dealing with sequential data.
+### Limitations of Feed Forward Networks
 
-Consider this we've 10 sentences with words range from 0 to 25, the input size (i.e) number of words vary across sentences. Now to convert this to a fixed shape,
+Feed forward network or perceptron, given an input produces an output. Here both input and output are static or of fixed shape. Let's consider a text sequence `I am learning Deep Learning`. All the words are splitted and fed into the neural network and we gt a output but we lose the information between the sequence since each word is treated as a seperate entity.
 
-Fit the input length to a certain number
-    * Using a small number, useful information might be lost
-    * Using a large number, we might fal into the curse of dimensionality
+To process sequence data, we need the information from past memory (i.e) while processing `am` we need the context of `learning`.. This is not possible in traditional feed forward network. Toa achieve this we need recurrence, meaning both current input and previous state is required. Recurrent Neural Network does exactly this, it maintains an internal state of the previous timesteps by an internal `for loop`.
 
-We can still use CNN's for sequence data modelling which we'll cover it in a blog in the future😜.
-
-### Why Recurrent Neural Networks?
+### Recurrent Neural Networks
     
-RNN's have a internal `for loop` to iterate over timestamps of sequence data. The RNN's have an internal state that encodes information about the timestamps it has seen.
+The basic defintion of RNN is ```RNN's have a internal `for loop` to iterate over timestamps of sequence data. The RNN's have an internal state that encodes information about the timestamps it has seen.```
 
-Since `TesnorFlow` is my current primary framework for deep modelling, i'll use that in this blog.
+Let's dive deeper,
 
-The `Keras RNN API` provides us with `layers.RNN`, `layers.LSTM` and `layers.GRU` for ease of use. The` internal for loop` can be customized and used with `layers.RNN` for loop itself offering ease of customization.
+So we have established RNN's has a sense of recurrence, how is this done?
+
+RNN's have a **`hidden state`** updated at each **`timestep`** while a sequence is getting processed, where **h<sub>t** is the hidden state.
+
+To calculate **h<sub>t** at every time step, recurrence relation is applied at every time step as below,
+   
+<img src="/images/ht.PNG">
+ 
+One importatnt point is the same function and parameters(weights) are used at every timestep of processing the sequence. But these weights will be learned and updated during trianing.
 
 **Sources:**
 
 1. https://www.tensorflow.org/text/guide/word_embeddings
 2. https://www.tensorflow.org/guide/keras/rnn
+3. [MIT's introduciton to deep learning](https://www.youtube.com/watch?v=qjrad0V0uJE&list=PLtBw6njQRU-rwp5__7C0oIVt26ZgjG9NI&index=2)
