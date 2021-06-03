@@ -63,7 +63,7 @@ RNN's have a **`hidden state`** updated at each **`timestep`** while a sequence 
 
 To calculate **h<sub>t** at every time step, recurrence relation is applied at every time step as below,
    
-<img src="/images/ht.PNG">
+<img src="/images/RNN/ht.PNG">
  
 One important point is the same function and parameters(weights) are used at every timestep of processing the sequence. But these weights will be learned and updated during trianing.
     
@@ -85,16 +85,34 @@ next_word_prediction = prediction
     
 #### RNN State Update and Output
     
-When an input vector of x(sub>t,
-The hidden state is updated as h<sub>t,
-
-h<sub>t = tanh(**W<sub>h<sub>t-1 + W<sub>xhx<sub>t).
+When an input vector The hidden state is updated as below.
     
 In hidden state caluclation there are two elements, dot product of hidden state weigh matrix and hidden state encoded of all the previous time stamp is summed with weight matrix and current input dot product. The sum is passed to tanh activation.
+
+<img src="images/RNN/hidden_state_with_weights.png">
     
 From the hidden state the output y is equal to product of weight matrix and hidden state.
-    
-   
+
+<img src="images/RNN/output_state.png">
+
+#### RNN's computational graph across time
+
+When a sequence is getting processed in an RNN, we'll get a output and hidden state at each time step. Similary we'll get a loss for every time step, a main loss os derived from these. This is main loss which the model will try to minimize during trainig.
+
+<img src="images/RNN/cgraph.png">
+
+But the weights will remain the same for entire sequence.
+
+#### Sequence Modeling: Design Criteria
+
+To model sequences, we need:
+
+1. Handle variable-length sequences
+2. Track long-term dependencies
+3. Maintain information about order
+4. Share parameters across the sequence
+
+RNN's meet all these design criteria.
 
 **Sources:**
 
