@@ -89,17 +89,17 @@ When an input vector The hidden state is updated as below.
     
 In hidden state caluclation there are two elements, dot product of hidden state weigh matrix and hidden state encoded of all the previous time stamp is summed with weight matrix and current input dot product. The sum is passed to tanh activation.
 
-<img src="images/RNN/hidden_state_with_weights.png">
+<img src="/images/RNN/hidden_state_with_weights.png">
     
 From the hidden state the output y is equal to product of weight matrix and hidden state.
 
-<img src="images/RNN/output_state.png">
+<img src="/images/RNN/output_state.png">
 
 #### RNN's computational graph across time
 
 When a sequence is getting processed in an RNN, we'll get a output and hidden state at each time step. Similary we'll get a loss for every time step, a main loss os derived from these. This is main loss which the model will try to minimize during trainig.
 
-<img src="images/RNN/cgraph.png">
+<img src="/images/RNN/cgraph.png">
 
 But the weights will remain the same for entire sequence.
 
