@@ -114,6 +114,29 @@ To model sequences, we need:
 
 RNN's meet all these design criteria.
 
+#### Backpropogation Through Time
+
+This is the actual algorithm used to train RNN.
+
+Unlinke in a feed forward network where the backpropogation takes at a single timestep. In RNN there are loss at each timestep for a sequence. 
+
+In RNN's backpropogation is stated at overall loss through each individual loss and then backpropgated across each timestep in the sequence, this is why it's called as BPPT.
+
+<img src="/images/RNN/BPPT.png">
+
+#### Gradient issues
+
+<img src="/images/RNN/gradient.png">
+
+To compute gradient of initial hidden state invloves many factoes of weight matrices and repeated gradient computation.
+
+* Many weight values greater than 1 will lead to **exploding gradient**(gradient are extremley large) by leaving us no way of optimizing the gradient. This can be fixed by **Gradient Clipping** scaling back big gradients
+
+* Many weight values less than 1 leads to **vanishing gradient**. Due to repeated computations in gradient calculation, if there are many small values than 1 we might not have smaller and smaller gradients. This will bias parameters to capture only the short-term depenencies. This can be solved by
+    1. Activation function (Using Relu, which prevents weights greater than 1 from shrinking to 0)
+    2. Initialising weights (Initialize weights to identity matrix)
+    3. Network architecture (Gated cells, more complex recurrent unit that can more effectivley track long-term dependencies)
+
 **Sources:**
 
 1. https://www.tensorflow.org/text/guide/word_embeddings
