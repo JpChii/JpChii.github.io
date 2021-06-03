@@ -65,7 +65,36 @@ To calculate **h<sub>t** at every time step, recurrence relation is applied at e
    
 <img src="/images/ht.PNG">
  
-One importatnt point is the same function and parameters(weights) are used at every timestep of processing the sequence. But these weights will be learned and updated during trianing.
+One important point is the same function and parameters(weights) are used at every timestep of processing the sequence. But these weights will be learned and updated during trianing.
+    
+#### RNN intution in Pseudo Code
+    
+In this pseudo code, we're trying to predict tthe next word in sequence
+
+```Python
+my_rnn = RNN()
+hidden_state = [0,0,0,0]
+
+sentence = ["I", "am", "learning", ""RNN]
+
+for word in sentence:
+    prediction, hidden_state = my_rnn(word, hidden_state)
+
+next_word_prediction = prediction
+```
+    
+#### RNN State Update and Output
+    
+When an input vector of x(sub>t,
+The hidden state is updated as h<sub>t,
+
+h<sub>t = tanh(**W<sub>h<sub>t-1 + W<sub>xhx<sub>t).
+    
+In hidden state caluclation there are two elements, dot product of hidden state weigh matrix and hidden state encoded of all the previous time stamp is summed with weight matrix and current input dot product. The sum is passed to tanh activation.
+    
+From the hidden state the output y is equal to product of weight matrix and hidden state.
+    
+   
 
 **Sources:**
 
