@@ -38,20 +38,15 @@ The embedding length ranges from 8-dimensional for small datasets to 1024-dimens
 
 [Visulaization of word embeddings on tensorflow embedding projector](http://projector.tensorflow.org/?config=https://raw.githubusercontent.com/JpChii/ML-Projects/main/EmbeddingProjectorconfig.json)
 
-## Recurrent Neural Networks
-
-Recurrent Neural Network are powerful for modelling sequence data such as time series and natural language. 
-
-### Natural Language data sources
-Audio, text are sources of Natural Language which are also called as sequence data. Let's see in brief about the neural network suited best for sequential data
-
-### Limitations of Feed Forward Networks
+## Limitations of Feed Forward Networks
 
 Feed forward network or perceptron, given an input produces an output. Here both input and output are static or of fixed shape. Let's consider a text sequence `I am learning Deep Learning`. All the words are splitted and fed into the neural network and we gt a output but we lose the information between the sequence since each word is treated as a seperate entity.
 
 To process sequence data, we need the information from past memory (i.e) while processing `am` we need the context of `learning`.. This is not possible in traditional feed forward network. Toa achieve this we need recurrence, meaning both current input and previous state is required. Recurrent Neural Network does exactly this, it maintains an internal state of the previous timesteps by an internal `for loop`.
 
-### Recurrent Neural Networks
+## Recurrent Neural Networks
+
+Recurrent Neural Network are powerful for modelling sequence data such as time series and natural language. 
     
 The basic defintion of RNN is ```RNN's have a internal `for loop` to iterate over timestamps of sequence data. The RNN's have an internal state that encodes information about the timestamps it has seen.```
 
@@ -67,7 +62,7 @@ To calculate **h<sub>t** at every time step, recurrence relation is applied at e
  
 One important point is the same function and parameters(weights) are used at every timestep of processing the sequence. But these weights will be learned and updated during trianing.
     
-#### RNN intution in Pseudo Code
+### RNN intution in Pseudo Code
     
 In this pseudo code, we're trying to predict tthe next word in sequence
 
@@ -83,7 +78,7 @@ for word in sentence:
 next_word_prediction = prediction
 ```
     
-#### RNN State Update and Output
+### RNN State Update and Output
     
 When an input vector The hidden state is updated as below.
     
@@ -95,7 +90,7 @@ From the hidden state the output y is equal to product of weight matrix and hidd
 
 <img src="/images/RNN/output_state.png">
 
-#### RNN's computational graph across time
+### RNN's computational graph across time
 
 When a sequence is getting processed in an RNN, we'll get a output and hidden state at each time step. Similary we'll get a loss for every time step, a main loss os derived from these. This is main loss which the model will try to minimize during trainig.
 
@@ -103,7 +98,7 @@ When a sequence is getting processed in an RNN, we'll get a output and hidden st
 
 But the weights will remain the same for entire sequence.
 
-#### Sequence Modeling: Design Criteria
+### Sequence Modeling: Design Criteria
 
 To model sequences, we need:
 
@@ -114,7 +109,7 @@ To model sequences, we need:
 
 RNN's meet all these design criteria.
 
-#### Backpropogation Through Time
+### Backpropogation Through Time
 
 This is the actual algorithm used to train RNN.
 
@@ -124,7 +119,7 @@ In RNN's backpropogation is stated at overall loss through each individual loss 
 
 <img src="/images/RNN/BPPT.png">
 
-#### Gradient issues
+### Gradient issues
 
 <img src="/images/RNN/gradient.png">
 
@@ -137,7 +132,7 @@ To compute gradient of initial hidden state invloves many factoes of weight matr
     2. Initialising weights (Initialize weights to identity matrix)
     3. Network architecture (Gated cells, more complex recurrent unit that can more effectivley track long-term dependencies)
 
-#### Long short term memeory
+### Long short term memeory
 
 In a standard RNN, repeating module contains a simple computation node. LSTM modules contain computational blocks that control information flow. LSTM cels are able to track information through many timestamps. 
     
