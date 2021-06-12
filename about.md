@@ -1,3 +1,3 @@
 # About
 
-Include my details in a [Cool Site](https://jpchii.herokuapp.com), Chech it out for more details.
+Checkout more about me on my [Cool Site](https://jpchii.herokuapp.com).
