@@ -1,3 +1,5 @@
+## Blog in progress - 17th June
+
 # Guide-to-machine-learning-as-a-service
 
 I've been creating machine learning models for sometime now. So the model's are just sitting in my storage??
@@ -39,3 +41,7 @@ model_name/
 * src has the bulk of functionalities with preprocessing and model prediction
 * README.md is the high level introduction to the application
 * requirements.txt has the dependent packages of the application
+
+I've tried to learn to implement the project using this structure from beginning but i got greedy to deploy my model and went with a single file for app and single file for utils.
+
+The main aim of the blog here is to make the model available to be used by an application. Am going to use google cloud as the platform, becuase it's one of the platforms where i haven't used the free trial.
