@@ -44,7 +44,7 @@ We'll use HuggingFace transformers implementation of GPT2, because it's written 
 * Concatenate all attention weights
 * reduce in map-reduce
 
-Gist below, goes through layers and efficient implementation of attention mechanism via forward(). 
+Gist below, goes through layers and efficient implementation of a ttention mechanism via forward(). 
 
 {% gist b311ac84914b23a0957b241f5214bd2e %}
 
@@ -176,7 +176,7 @@ print(losses)
 ```
 
 *Loss visualization*
-<img src="../images/reproduce-gpt/single-batch-overfit-losses.png">
+<img src="/images/reproduce-gpt/single-batch-overfit-losses.png">
 
 With this loss progression, we can see the loss is crunched really fast. The transformer has memorized/overfitted on this single batch.
 
@@ -218,7 +218,7 @@ print(losses)
 ```
 
 *loss visualization*
-<img src="../images/reproduce-gpt/50-batch-overfit-losses.png">
+<img src="/images/reproduce-gpt/50-batch-overfit-losses.png">
 
 Inferences from output:
 1. Number of tokens: 338025 # Compression ratio of 3:1 matches
