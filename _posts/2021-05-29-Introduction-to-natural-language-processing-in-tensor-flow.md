@@ -132,7 +132,13 @@ To compute gradient of initial hidden state invloves many factoes of weight matr
     2. Initialising weights (Initialize weights to identity matrix)
     3. Network architecture (Gated cells, more complex recurrent unit that can more effectivley track long-term dependencies)
 
+<<<<<<< Updated upstream
 ### Long short term memeory
+=======
+#### Long Short Term Memory Networks
+
+**Sources:**
+>>>>>>> Stashed changes
 
 In a standard RNN, repeating module contains a simple computation node. LSTM modules contain computational blocks that control information flow. LSTM cels are able to track information through many timestamps. 
     
