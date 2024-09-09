@@ -1,3 +1,3 @@
 # About
 
-Checkout more about me on my [Cool Site](https://jpchii.herokuapp.com).
+Checkout more about me on my [site](hhttps://jpchii-portfolio.onrender.com/).
