@@ -29,7 +29,7 @@ We'll use HuggingFace transformers implementation of GPT2, because it's written 
 4. Final layer normalization layer
 5. Final Linear layer to calculate logits
 
-{% gist925e3f039fad7167b873dcaafb361e51 %}
+{% gist 925e3f039fad7167b873dcaafb361e51 %}
 
 *Naming convention for these layers should match the huggingface model layer name's.*
 
@@ -46,7 +46,7 @@ We'll use HuggingFace transformers implementation of GPT2, because it's written 
 
 Gist below, goes through layers and efficient implementation of attention mechanism via forward(). 
 
-{% gistb311ac84914b23a0957b241f5214bd2e %}
+{% gist b311ac84914b23a0957b241f5214bd2e %}
 
 ### MLP
 
@@ -58,7 +58,7 @@ Gist below, goes through layers and efficient implementation of attention mechan
 * To replicate GPT2 paper approximate implementation of GELU from pytorch is used. This is no longer needed
 * map in map-reduce
 
-{% gistec9993986649ab0d48d29e35b8811b05 %}
+{% gist ec9993986649ab0d48d29e35b8811b05 %}
 
 
 ### Block
@@ -69,7 +69,7 @@ Block commbines AttentionLayer and MLP layer with pre-normalization, residual co
 * Implements Normalization -> MLP + Residual connection
 * A clean gradient goes through residual connection and attention normalization block alters the gradient accordingly
 
-{% gist15f27edb95ee01fa378e6d2030477d46 %}
+{% gist 15f27edb95ee01fa378e6d2030477d46 %}
 
 ### Load pretrained weights
 
@@ -81,7 +81,7 @@ We'll be loading weights from huggingface model to our scratch model.
 	* Remove .attn.bias, .attn.masked_bias
 * transpose bias keys, weights are in Conv1D in original paper. With transpose we'll load weights to Linear Layer.
 
-{% gistdd1895d76486f984cc4e9f4047caf17b %}
+{% gist dd1895d76486f984cc4e9f4047caf17b %}
 
 ### Forward pass
 
@@ -94,7 +94,7 @@ We'll be loading weights from huggingface model to our scratch model.
 	* logits.view preservers final dimension and merges batch and tokens into a single dimension
 * Return logits and loss
 
-{% gist1c2f6e87c51bc3750dd3de742f2f472e %}
+{% gist 1c2f6e87c51bc3750dd3de742f2f472e %}
 
 ## Dataset creation
 
@@ -183,7 +183,7 @@ With this loss progression, we can see the loss is crunched really fast. The tra
 ### Full Batch training(but really for 50 batch)
 
 Use the below dataloader for creating batches of data for training loop. This is an updated version of create_data() in data.py
-{% gistc450136a9087445850d5704d7c626ef5 %}
+{% gist c450136a9087445850d5704d7c626ef5 %}
 
 Run the training loop.
 ```Python
