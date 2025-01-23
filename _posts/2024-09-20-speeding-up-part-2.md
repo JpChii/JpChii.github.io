@@ -50,7 +50,7 @@ In this blog am using A100 80GB SXM from https://www.runpod.io.
 ## Maximizing Hardware
 
 Sample GPU specs(*diag1*):
-<img src="./images/reproduce-gpt/ax100sxm.png">
+<img src="../images/reproduce-gpt/ax100sxm.png">
 
 * As we reduce the size of datatype used by parameters in a deep network model number of TFLOPS(matrix operations) increases.
 * Neural network training can work with lower precision types FP16, FP32 etc.
@@ -66,7 +66,7 @@ TensorCore is an architecture to speed up matrix multiplication by Nvidia.
 
 ### TF32
 *diag2*
-<img src="./images/reproduce-gpt/a100-architecture-precison-types.png">
+<img src="../images/reproduce-gpt/a100-architecture-precison-types.png">
 
 
 
@@ -218,7 +218,7 @@ model = torch.compile(model)
 		* PyTorch understand the entirety of operations that python compiler doesn't understand and then optimizes these process
 		* It takes out python interpreter of the entire forward pass, it knows what to run and runs them in efficient code.
 	* GPU Read/Writes:
-		<img src="./images/reproduce-gpt/gpu-read-writes.png">
+		<img src=".../images/reproduce-gpt/gpu-read-writes.png">
 
 	
 		```Python
@@ -258,12 +258,12 @@ Step 9, loss: 7.5099, dt: 174.44ms, tokens/sec: 93923.72
 
 #### High level overview of Memory architecture
 *diag4* - Indepth view of single GPu core in diag3
-<img src="./images/reproduce-gpt/ga100-full-gpu-128-sms.png">
+<img src="../images/reproduce-gpt/ga100-full-gpu-128-sms.png">
 
 
 * HBM and above GPU core are different chips.
 *diag5* - single SM inside diag4 GPU core
-<img src="./images/reproduce-gpt/single-sm-a100.png">
+<img src="../images/reproduce-gpt/single-sm-a100.png">
 
 
 * There is some memory but not a lot inside the GPU Chip
@@ -274,7 +274,7 @@ Step 9, loss: 7.5099, dt: 174.44ms, tokens/sec: 93923.72
 In General, Compute(processings inside GPU cores/SM) is faster but access to Compute is limited by memory. As data has to go something like below:
 
 *diag6* - Memory Hierarchy with Bandwidth speeds.
-<img src="./images/reproduce-gpt/mem-hirearchy-with-bandwidth-size.png">
+<img src="../images/reproduce-gpt/mem-hirearchy-with-bandwidth-size.png">
 
 
 ### Flash Attention
@@ -288,7 +288,7 @@ There are lot's of operation torch compile can find but flash attention is not o
 Bottlenecks of Attention:
 
 Excerpt from Flash Attention Paper:
-<img src="./images/reproduce-gpt/standard-attention-implementation.png">
+<img src="../images/reproduce-gpt/standard-attention-implementation.png">
 
 
 Normal attention has many read writes for very large N * N matrix multiplications in attention mechanism. Here N * N referes to Key, Query, Value, attention scores calculation, Attention weights calculation with softmax and final attention values. ***Flash attention avoid the creation of N *  N matrices.*** 
@@ -395,7 +395,7 @@ def get_lr(it):
 	return lr
 ```
 
-<img src="./images/reproduce-gpt/cosine-learning-rate-scheduler.png">
+<img src="../images/reproduce-gpt/cosine-learning-rate-scheduler.png">
 
 
 * warmup until max learning rate with step
@@ -477,7 +477,7 @@ Step    9 | loss: 7.526327 | lr: 6.0000e-04 | norm: 1.4583 | dt: 109.70ms | toke
 
 ### Gradient Accumulation
 
-<img src="./images/reproduce-gpt/gpt3-hyperparameters.png">
+<img src="../images/reproduce-gpt/gpt3-hyperparameters.png">
 
 
 The batch size of 125M model is 0.5M tokens. All above training iterations were performed with 16(Batch size) x 1024(Tokens) = 16,384 tokens. To increase the number of tokens to 0.5M, we've to increase the batch size by 0.5M/1024 = 488. B,T of (488, 1024) is required to load 0.5M tokens. This is not feasible due to the limited Memory(GPU) or resources available. To overcome this and achieve a batch size of 0.5M we can use Gradient Accumulation.
@@ -774,7 +774,7 @@ Alright now we're done with speeding up and our training setup is no longer suit
 
 * GPT2 - Scraped all reddit outbound links with at least 3 karma(heuristic indicator for whether the article was useful or not). The resulting dataset WebText contains the text subset of these 45 million links. [openwebtext is the opensource alternative](https://openwebtext2.readthedocs.io/en/latest/background/) as the dataset and source code was not made public.
 * GPT3 - Filtered version of CommonCrawl and fuzzy deduplication at the document level across datasets, plus high-quality corpora to the training mix to augment CommonCrawl to increase its diversity. *GPT3 data mixture below*:
-	<img src="./images/reproduce-gpt/gpt3-data-mixture.png">
+	<img src="../images/reproduce-gpt/gpt3-data-mixture.png">
 
 
 *Open source datasets:*
