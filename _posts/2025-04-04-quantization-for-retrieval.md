@@ -14,7 +14,7 @@ This notebook combines quantization, distillation with evaluation.
 
 Source notebooks or Pre-reads(might not be a word lol):
 1. [Quantization, Distillation, Evaluation](https://github.com/JpChii/nlp-with-hugging-face/blob/main/notebooks/8-Making-transformers-efficient-in-production.ipynb)
-2. [Linear quantization(used in this notebook)]()
+2. [Linear quantization(used in this notebook)](https://jpchii.github.io/2025/04/04/linear-quantization.html)
 
 This notebook:
 

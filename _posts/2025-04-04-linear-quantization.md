@@ -9,7 +9,7 @@ Linear Quantization. This notebook covers:
 
 ## Quantization Theory
 
-For more details on Quantization refer [previous notebook](../notebooks/9-dealing-with-few-to-no-labels.ipynb).
+For basic introduction to quantization [check this out](https://github.com/JpChii/nlp-with-hugging-face/blob/main/notebooks/8-Making-transformers-efficient-in-production.ipynb).
 
 1. Assymetric Quantization
 
