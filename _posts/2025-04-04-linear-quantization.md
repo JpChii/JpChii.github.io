@@ -1,3 +1,8 @@
+---
+layout: default
+title: My Math Page
+---
+
 # Linear Quantization
 
 [Source](https://www.deeplearning.ai/short-courses/quantization-in-depth/)
