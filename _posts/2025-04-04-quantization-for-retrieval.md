@@ -852,7 +852,7 @@ plt.show();
 ```
 
 
-<img src="../images/quantization-retrieval/8-2-quantize-distill-retrieval_21_0.png">
+<img src="/images/quantization-retrieval/8-2-quantize-distill-retrieval_21_0.png">
 
 
 ```python
@@ -900,7 +900,7 @@ plt.hist(quantized_weights.int_repr(), bins=1000);
 
 
     
-<img src="../images/quantization-retrieval/8-2-quantize-distill-retrieval_25_0.png">
+<img src="/images/quantization-retrieval/8-2-quantize-distill-retrieval_25_0.png">
     
 
 
@@ -1235,7 +1235,7 @@ plt.hist(gte_qwen_2_15b.state_dict()["layers.0.self_attn.q_proj.weight"].flatten
 
 
     
-<img src="../images/quantization-retrieval/8-2-quantize-distill-retrieval_44_1.png">
+<img src="/images/quantization-retrieval/8-2-quantize-distill-retrieval_44_1.png">
 
 
 
@@ -1255,7 +1255,7 @@ plt.hist(int8_weights.flatten())
 
 
     
-<img src="../images/quantization-retrieval/8-2-quantize-distill-retrieval_45_1.png">
+<img src="/images/quantization-retrieval/8-2-quantize-distill-retrieval_45_1.png">
     
 
 
@@ -1315,7 +1315,7 @@ plt.hist(man_int8_weights.flatten());
 
 
     
-<img src="../images/quantization-retrieval/8-2-quantize-distill-retrieval_49_1.png">
+<img src="/images/quantization-retrieval/8-2-quantize-distill-retrieval_49_1.png">
     
 
 
@@ -1343,7 +1343,7 @@ plt.hist(dq_weights.flatten());
 
 
     
-<img src="../images/quantization-retrieval/8-2-quantize-distill-retrieval_51_0.png">
+<img src="/images/quantization-retrieval/8-2-quantize-distill-retrieval_51_0.png">
     
 
 
@@ -1354,7 +1354,7 @@ plt.hist(man_weights.flatten());
 
 
     
-<img src="../images/quantization-retrieval/8-2-quantize-distill-retrieval_52_0.png">
+<img src="/images/quantization-retrieval/8-2-quantize-distill-retrieval_52_0.png">
     
 
 
