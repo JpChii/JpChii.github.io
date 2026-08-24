@@ -90,14 +90,14 @@ How do we tweak the weights for good actions? Idea is to let the agent interact 
 |episode_start| --> |state_0|action_0| --> |state_1|action_1| --> |state_n|action_n| --> |episode_end|
 ```
 
-For each state|action increase or decrease $P(a|s)$ occured during the episode.
+For each state: action increase or decrease $P(a|s)$ occured during the episode.
 
 ### Deeper Dive
 
 Terminology:
 - $Π$ --> Stocahstic Policy
 - $\theta$ --> Parameter
-- $P[A|s;\theta]$ -> Probability distribution of actions.
+- $P[A|s;\theta]$: Probability distribution of actions.
 
 Parametrized stochastic policy, given a state emits a probability distribution of actions.
 

@@ -22,8 +22,10 @@ Agent obtains this reward, if it's starts at this state and act according to pol
 
 In value-based training, finding an optimal value function leads to having an optimal policy.
 
-Math equation:
-$\pi^*(s) = argmax Q^*(s,a)$
+Math equation
+$$
+\pi^*(s) = \arg\max_{a} Q^*(s,a)
+$$
 
 ### Two types of Value-Based methods
 

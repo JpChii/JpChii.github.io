@@ -35,7 +35,8 @@ With this gigantic state space, Q-Table is not efficient. Deep Q Learning, accep
 Q-Learning:- In Training, directly update state-action q value in Q-Table.
 Deep Q-Learning: As in any deep learning neural networks, we'll calculate a loss and update weights of Deep Q-Network using gradient descent.
 Deep Q-Learning Loss:
-```
+
+```text
 [Immediate reward(for an action) + Discounted estimate of optimal Q-Value] - [Former Q-Value estimation]
 ```
 
