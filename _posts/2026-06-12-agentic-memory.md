@@ -1,4 +1,4 @@
-#Agentic-Memory
+# Memory
 
 ## What is memory & why it matters
 
@@ -141,8 +141,6 @@ Processing and Latency:
 1. Procedural memory sits opposite to semantic + epsiodic memory. LLM uses procedural memory to achieve an task/objective.
 2. They're in two places: LLM weights and system prompt plus instructions[prompts].
 3. We can pull up procedures that worked in previous interactions and plug them into prompts. This'll be also leveraging the knowledge base from episodic memory.
-
-![agentic_memory](agentic-memory.png)
 
 ### HuggingFace framing (LTM / STM hierarchy)
 
