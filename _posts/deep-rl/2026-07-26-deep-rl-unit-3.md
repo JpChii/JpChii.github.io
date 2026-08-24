@@ -40,7 +40,7 @@ Deep Q-Learning Loss:
 [Immediate reward(for an action) + Discounted estimate of optimal Q-Value] - [Former Q-Value estimation]
 ```
 
- ### Training algorithm
+### Training algorithm
 
 Phase 1 (Sampling): Take actions and store expreience tuples in replay memory. Experience tuple - (Current state, action taken, immediate reward, next state).
 Phase 2 (Training): Select, use a small batch of expreience(random) and learn from this batch using gradint descent.
